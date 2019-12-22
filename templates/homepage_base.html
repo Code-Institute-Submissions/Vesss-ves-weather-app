@@ -13,11 +13,9 @@
         <form method="POST" class="text-center">
             <div class="form-group">
                 {% csrf_token %} {{ login_form.as_p }}
-                <button type="submit">Login</button>
             </div>
         </form>
     </div>
-    
     <nav class="navbar text-white flex-column">
         <li id="login"><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'registration' %}">Register</a></li>
