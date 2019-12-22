@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+nav {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    background-color: black;
+}
+
+footer {
+    height: 200px;
+    background-color: orange;
+    font-family: 'Bebas Neue', cursive;
+}
+
+i {
+    color: black;
+}
+
+ul > li > a {
+    color: white;
+}
+
+.weathercentral {
+    height: 300px;
+    width: 300px;
+    border-style: solid;
+    border-width: thin;
+    margin-bottom: 20px;
+}
+
+.searchbox {
+    margin-bottom: 10px;
+    /*margin-left: -50px;*/
+}
+
+footer {
+    height: 200px;
+    background-color: orange;
+    font-family: 'Bebas Neue', cursive;
+}
