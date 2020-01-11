@@ -5,82 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="../static/css/homepage.css" type="text/css" />
+    {% block title %}{% endblock %}
 </head>
 <body>
     <h1 class="text-center"><a href="{% url 'index' %}">The Weather App</a></h1>
-        <div class="form-group">
-        <form method="POST" class="text-center">
-            <div class="form-group">
-                {% csrf_token %} {{ login_form.as_p }}
-            </div>
-        </form>
-    </div>
-    <nav class="navbar text-white flex-column">
-        <li id="login"><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'registration' %}">Register</a></li>
-    </nav>
+    {% block login %}{% endblock %}
+    
+    {% block loginreg %}{% endblock %}
+    
+    {% block registration %}{% endblock %}
 </body>
 
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
-    body {
-    background: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-    }
+<!--<style>-->
+<!--@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');-->
+<!--    body {-->
+<!--    background: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9) no-repeat center center fixed; -->
+<!--  -webkit-background-size: cover;-->
+<!--  -moz-background-size: cover;-->
+<!--  -o-background-size: cover;-->
+<!--  background-size: cover;-->
+<!--    }-->
     
-    /* Remove default li dots */
-    nav > li {
-     list-style: none;
-    }
+    <!--/* Remove default li dots */-->
+<!--    nav > li {-->
+<!--     list-style: none;-->
+<!--    }-->
     
-    nav > li > a {
-        color: #0000ff;
-    }
+<!--    nav > li > a {-->
+<!--        color: #0000ff;-->
+<!--    }-->
     
-    /* Remove on hover default text-decoration (underline) */
-    nav > li > a:hover {
-    text-decoration: none;
-    color: #0000ff;
-    }
+    <!--/* Remove on hover default text-decoration (underline) */-->
+<!--    nav > li > a:hover {-->
+<!--    text-decoration: none;-->
+<!--    color: #0000ff;-->
+<!--    }-->
     
-    h1 {
-        margin-top: 150px;
-        font-family: 'Bebas Neue';
-        font-size: 75px;
-    }
+<!--    h1 {-->
+<!--        margin-top: 150px;-->
+<!--        font-family: 'Bebas Neue';-->
+<!--        font-size: 75px;-->
+<!--    }-->
     
-    h1 > a {
-        text-decoration: none;
-        color: black;
-    }
+<!--    h1 > a {-->
+<!--        text-decoration: none;-->
+<!--        color: black;-->
+<!--    }-->
     
-    h1 > a:hover {
-        text-decoration: none;
-        color: black;
-    }
+<!--    h1 > a:hover {-->
+<!--        text-decoration: none;-->
+<!--        color: black;-->
+<!--    }-->
     
-    nav > li > a {
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .3s;
-}
+<!--    nav > li > a {-->
+<!--    text-decoration: none;-->
+<!--    background-image: linear-gradient(currentColor, currentColor);-->
+<!--    background-position: 0% 100%;-->
+<!--    background-repeat: no-repeat;-->
+<!--    background-size: 0% 2px;-->
+<!--    transition: background-size .3s;-->
+<!--}-->
 
-nav > li > a:hover,  nav > li > a:focus {
-    background-size: 100% 2px;
-}
+<!--nav > li > a:hover,  nav > li > a:focus {-->
+<!--    background-size: 100% 2px;-->
+<!--}-->
 
-#login {
- margin-bottom: 3px;   
-}
+<!--#login {-->
+<!-- margin-bottom: 3px;   -->
+<!--}-->
     
     
-</style>
+<!--</style>-->
 </html>
