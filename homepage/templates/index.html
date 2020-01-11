@@ -1,1 +1,8 @@
 {% extends 'homepage_base.html' %}
+{% block loginreg %}
+{% block title %}<title>Index</title>{% endblock %}
+<nav class="navbar text-white flex-column">
+        <li id="login"><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'registration' %}">Register</a></li>
+    </nav>
+{% endblock %}
