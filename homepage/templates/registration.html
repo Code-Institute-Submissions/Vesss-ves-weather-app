@@ -1,6 +1,13 @@
-{% extends 'homepage_base.html' %} {% block registration %}
+{% extends 'homepage_base.html' %} 
+
+<!-- Block 'Title' - this is the block for the title tag -->
+{% block title %}
+<title>Registration</title>
+{% endblock %}
+
+{% block registration %}
 <div class="text-center">
-    <p>Already have an account? <a href="{% url 'login' %}">Log in!</a></p>
+    <p>Already have an account? <a class="login" href="{% url 'login' %}">Log in!</a></p>
     <br />
     <form method="POST">
         {% csrf_token %} {% for field in registration_form %}
