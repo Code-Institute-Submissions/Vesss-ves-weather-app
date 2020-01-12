@@ -1,7 +1,14 @@
-{% extends 'homepage_base.html' %} {% block title %}
-<title>Login</title>{% endblock %} {% block login %}
+{% extends 'homepage_base.html' %}
+
+<!-- Block 'Title' - this is the block for the <title> tag -->
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+<!-- Block 'Login' - this is the block for the login.html page. The content within this block is unique to the login.html page. -->
+{% block login %}
 <div class="text-center">
-    <p>Don't have an account yet? <a href="{% url 'registration' %}">Register here!</a></p>
+    <p id="register">Don't have an account yet? <a href="{% url 'registration' %}">Register here!</a></p>
 </div>
 <div class="form-group">
     <form method="POST" class="text-center">
