@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from user_homepage.views import user_homepage, logout
 from homepage.views import index, login, registration
 from donations import views as donation_views
-from products.views import ProductListView
+from products.views import ProductListView, ProductDetailView
 
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^logout/$', logout, name="logout"),
     url(r'^login/$', login, name="login"),
     url(r'^products/$', ProductListView.as_view()),
+    url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     url(r'^registration/$', registration, name="registration"),
     url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations")
     
