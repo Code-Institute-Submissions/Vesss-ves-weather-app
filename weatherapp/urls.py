@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^logout/$', logout, name="logout"),
     url(r'^login/$', login, name="login"),
-    url(r'^products/$', ProductListView.as_view()),
+    url(r'^products/$', ProductListView.as_view(), name="products"),
     url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     url(r'^registration/$', registration, name="registration"),
     url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations")
