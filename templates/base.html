@@ -63,6 +63,9 @@
             <li class="nav-item">
                 <a class="nav-link hvr-grow" href="{% url 'user_homepage' %}">Search a city</a>
             </li>
+            <li class="nav-item">
+                <a class="nav link hvr-grow" href="{% url 'products' %}">Merchandise</a>
+            </li>
             <li class="nav-item hvr-grow">
                 <a class="nav-link" href="{% url 'donations' %}">Donate!</a>
             </li>
@@ -70,11 +73,11 @@
     </div>
 </nav>
 <br />
-<br /> {% block donations %}{% endblock %} {% block weather %}{% endblock %} {% block weatherinfotext %}{% endblock %}
+<br /> {% block donations %}{% endblock %} {% block weather %}{% endblock %} {% block weatherinfotext %}{% endblock %} {% block products %}{% endblock %}
 
 
 
-<footer class="fixed-bottom">
+<footer>
     <div class="container-fluid">
         <br />
         <i class="fa fa-facebook fa-3x"></i>
