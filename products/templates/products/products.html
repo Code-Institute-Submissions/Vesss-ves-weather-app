@@ -1,5 +1,18 @@
-{% for item in object_list %}
+{% extends 'base.html' %} {% block products %} {% for item in object_list %}
 
-{{ item.title }} <br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{% endfor %}
+{% endfor %} {% endblock %}
