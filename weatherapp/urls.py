@@ -20,6 +20,7 @@ from user_homepage.views import user_homepage, logout
 from homepage.views import index, login, registration
 from donations import views as donation_views
 from products.views import ProductListView, ProductDetailView, ProductFeaturedDetailView, ProductFeaturedListView, ProductDetailSlugView
+from cart.views import cart_home
 
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^logout/$', logout, name="logout"),
     url(r'^login/$', login, name="login"),
+    url(r'^cart/$', cart_home, name="cart"),
     url(r'^products/$', ProductListView.as_view(), name="products"),
     url(r'^featured/$', ProductFeaturedListView.as_view()),
     url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
