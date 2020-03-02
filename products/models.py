@@ -2,6 +2,8 @@ import random
 import os
 from django.db import models
 
+from weatherapp.utils import unique_slug_generator
+
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
     name, ext = os.path.splitext(base_name)
