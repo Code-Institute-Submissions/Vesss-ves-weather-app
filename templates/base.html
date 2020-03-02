@@ -1,3 +1,5 @@
+{% url 'cart:home' as cart_url %}
+
 <!doctype html>
 <html lang="en">
 
@@ -57,23 +59,26 @@
   </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav column-reverse text-white">
-                <li class="nav-item">
-                    <a class="nav-link hvr-grow" href="{% url 'logout' %}">Logout</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item text-white">
                     <a class="nav-link hvr-grow" href="{% url 'user_homepage' %}">Search a city</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav link hvr-grow" href="{% url 'products' %}">Merchandise</a>
+                    <a class="nav-link hvr-grow" href="{% url 'products' %}">Merchandise</a>
                 </li>
                 <li class="nav-item hvr-grow">
                     <a class="nav-link" href="{% url 'donations' %}">Donate!</a>
+                </li>
+                <li class="nav-item hvr-grow">
+                    <a class="nav-link" href="{{ cart_url }}">{{ request.session.cart_items }} <i class="fa fa-shopping-cart"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hvr-grow" href="{% url 'logout' %}">Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
     <br />
-    <br /> {% block donations %}{% endblock %} {% block weather %}{% endblock %} {% block weatherinfotext %}{% endblock %} {% block products %}{% endblock %} {% block details %}{% endblock %}
+    <br /> {% block donations %}{% endblock %} {% block weather %}{% endblock %} {% block weatherinfotext %}{% endblock %} {% block products %}{% endblock %} {% block details %}{% endblock %} {% block cart %}{% endblock %}
 
 
 
@@ -94,3 +99,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
