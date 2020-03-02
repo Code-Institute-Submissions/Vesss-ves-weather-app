@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user_homepage',
     'homepage',
     'donations',
+    'orders',
     'products',
     'cart',
 ]
