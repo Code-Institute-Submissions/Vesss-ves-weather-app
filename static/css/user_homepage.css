@@ -11,13 +11,21 @@ footer {
     font-family: 'Bebas Neue', cursive;
 }
 
-i {
-    color: black;
-}
+/*i {*/
+/*    color: black;*/
+/*}*/
 
-ul > li > a {
-    color: white;
-}
+/*.navbar-dark .navbar-nav .nav-link, .fa-shopping-cart {*/
+/*    color: white;*/
+/*}*/
+
+/*.navbar-dark .navbar-nav .nav-link:hover, .fa-shopping-cart:hover {*/
+/*    color: #BFBFBF;*/
+/*}*/
+
+/*ul > li > a > i {*/
+/*    color: #BFBFBF;*/
+/*}*/
 
 .weathercentral {
     height: 300px;
