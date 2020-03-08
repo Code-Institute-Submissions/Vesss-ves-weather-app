@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from django.utils.http import is_safe_url
 
 # Create your views here.
 def login(request):
