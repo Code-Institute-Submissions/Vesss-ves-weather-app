@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     
     #APPS
     'accounts',
+    'billing',
     'user_homepage',
     'homepage',
     'donations',
