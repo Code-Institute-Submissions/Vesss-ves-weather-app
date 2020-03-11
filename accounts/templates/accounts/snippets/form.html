@@ -1,0 +1,10 @@
+    <div class="form-group">
+        <form method="POST" action="{% url 'login' %}" class="text-center">
+            <div class="form-group">
+                {% csrf_token %} {% if next %}
+                <input type="hidden" name="next" value="{{ next_url }}" />
+                {% endif %}{{ login_form.as_p }}
+            </div>
+            <button type=submit>Login</button>
+        </form>
+    </div>
