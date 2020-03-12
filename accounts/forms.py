@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
 
+class GuestForm(forms.Form):
+    email = forms.EmailField()
+
 class UserLoginForm(forms.Form):
     """Form to be used to log users in"""
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
