@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     
     #APPS
     'accounts',
+    'addresses',
     'billing',
     'user_homepage',
     'homepage',
