@@ -4,6 +4,7 @@ from accounts.forms import UserLoginForm, GuestForm
 from accounts.models import GuestEmail
 from orders.models import Order
 from products.models import Product
+from addresses.forms import AddressForm
 from .models import Cart
 from billing.models import BillingProfile
 
@@ -37,8 +38,10 @@ def checkout_home(request):
     
     login_form = UserLoginForm()
     guest_form = GuestForm()
-    billing_profile, billing_guest_profile_created = BillingProfile.objects.new_or_get(request)
+    address_form = AddressForm()
+    billing_address_form = AddressForm()
     
+    billing_profile, billing_guest_profile_created = BillingProfile.objects.new_or_get(request)
     if billing_profile is not None:
         order_obj, order_obj_created = Order.objects.new_or_get(billing_profile, cart_obj)
 
@@ -47,7 +50,9 @@ def checkout_home(request):
         "object": order_obj,
         "billing_profile": billing_profile,
         "login_form": login_form,
-        "guest_form": guest_form
+        "guest_form": guest_form,
+        "address_form": address_form,
+        "billing_address_form": billing_address_form,
     }
     return render(request, "cart/checkout.html", context)
 
