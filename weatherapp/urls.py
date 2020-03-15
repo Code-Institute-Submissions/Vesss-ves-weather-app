@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from user_homepage.views import user_homepage, logout
 from homepage.views import index
 from accounts.views import login, registration, guest_register_view
+from addresses.views import checkout_address_create_view
 from donations import views as donation_views
 from products.views import ProductListView, ProductDetailView, ProductFeaturedDetailView, ProductFeaturedListView, ProductDetailSlugView
 
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^logout/$', logout, name="logout"),
     url(r'^login/$', login, name="login"),
+    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
     url(r'^register/guest/$', guest_register_view, name="guest_register"),
     url(r'^cart/', include("cart.urls", namespace="cart")),
     url(r'^products/$', ProductListView.as_view(), name="products"),
