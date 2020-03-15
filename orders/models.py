@@ -2,6 +2,7 @@ import math
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 from cart.models import Cart
+from addresses.models import Address
 from weatherapp.utils import unique_order_id_generator
 from billing.models import BillingProfile
 
