@@ -1,14 +1,13 @@
     <div class="form-group">
         <form method="POST" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}" class="text-center">
             <div class="form-group">
-                {% csrf_token %} {% if next %}
+                {% csrf_token %} {% if next_url %}
                 <input type="hidden" name="next" value="{{ next_url }}" />
                 {% endif %}
                 
                 {% if address_type %}
                     <input type="hidden" name="address_type" value="{{ address_type }}" />
                 {% endif %}
-                
                 {{ address_form.as_p }}
             </div>
             <button type=submit>Submit</button>
