@@ -18,10 +18,7 @@ ORDER_STATUS_CHOICES = (
 class OrderManager(models.Manager):
     def new_or_get(self, billing_profile, cart_obj):
         created = False
-        qs = self.get_queryset().filter(
-            billing_profile=billing_profile, 
-            cart=cart_obj, 
-            active=True)
+        qs = self.get_queryset().filter(billing_profile=billing_profile, cart=cart_obj, active=True)
         if qs.count() == 1:
             obj = qs.first()
         else:
@@ -33,16 +30,15 @@ class OrderManager(models.Manager):
 
 
 class Order(models.Model):
-    billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE, null=True, blank=True)
-    order_id        = models.CharField(max_length=120, blank=True)
-    # billing_profile = ?
-    # shipping_address
-    # billing_address
-    cart            = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    status          = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
-    shipping_total  = models.DecimalField(default=5.99, max_digits=7, decimal_places=2)
-    total           = models.DecimalField(default=0.00, max_digits=7, decimal_places=2)
-    active          = models.BooleanField(default=True)
+    billing_profile     = models.ForeignKey(BillingProfile, on_delete=models.CASCADE, null=True, blank=True)
+    order_id            = models.CharField(max_length=120, blank=True)
+    shipping_address    = models.ForeignKey(Address, related_name="shipping_address", on_delete=models.CASCADE, null=True, blank=True)
+    billing_address     = models.ForeignKey(Address, related_name="billing_address", on_delete=models.CASCADE, null=True, blank=True)
+    cart                = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    status              = models.CharField(max_length=120, default='created', choices=ORDER_STATUS_CHOICES)
+    shipping_total      = models.DecimalField(default=5.99, max_digits=7, decimal_places=2)
+    total               = models.DecimalField(default=0.00, max_digits=7, decimal_places=2)
+    active              = models.BooleanField(default=True)
 
     def __str__(self):
         return self.order_id
