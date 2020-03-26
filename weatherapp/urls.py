@@ -39,5 +39,5 @@ urlpatterns = [
     url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
     url(r'^registration/$', registration, name="registration"),
-    url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations")
+    url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations"),
 ]
