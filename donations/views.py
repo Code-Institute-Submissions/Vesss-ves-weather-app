@@ -9,5 +9,5 @@ class DonationPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        context['key'] = 'settings.STRIPE_PUBLISHABLE_KEY'
         return context

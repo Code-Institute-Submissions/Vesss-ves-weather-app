@@ -21,6 +21,7 @@ from homepage.views import index
 from accounts.views import login, registration, guest_register_view
 from addresses.views import checkout_address_create_view
 from donations import views as donation_views
+from billing.views import payment_method_view, charge_view, payment_method_create_view
 from products.views import ProductListView, ProductDetailView, ProductFeaturedDetailView, ProductFeaturedListView, ProductDetailSlugView
 
 
@@ -29,6 +30,9 @@ urlpatterns = [
     url(r'^userhomepage/$', user_homepage, name="user_homepage"),
     url(r'^$', index, name="index"),
     url(r'^logout/$', logout, name="logout"),
+    url(r'^billing/payment-method/$', payment_method_view, name="billing-payment-method"),
+    url(r'^billing/payment-method/create$', payment_method_create_view, name="billing-payment-method-api"),
+    url(r'^charge$', charge_view, name="charge"),
     url(r'^login/$', login, name="login"),
     url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
     url(r'^register/guest/$', guest_register_view, name="guest_register"),
