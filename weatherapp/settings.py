@@ -152,7 +152,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # stripe
-STRIPE_PUBLISHABLE_KEY = ''
+STRIPE_PUBLISHABLE_KEY = 'pk_test_BbiFSP5UQiTgd0uzTBK7pIdk006IgFnc45'
+STRIPE_SECRET_KEY = 'sk_test_E7QspNeUnEAzM8vfYsPgZGWx003AidX4N6'
 
 
 

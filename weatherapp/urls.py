@@ -40,4 +40,6 @@ urlpatterns = [
     url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
     url(r'^registration/$', registration, name="registration"),
     url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations"),
+    url(r'^thankyou/$', donation_views.ThankYouPageView.as_view(), name='thankyou'),
+    url(r'^payment-error/$', donation_views.PaymentErrorPageView.as_view(), name='payment_err'),
 ]
