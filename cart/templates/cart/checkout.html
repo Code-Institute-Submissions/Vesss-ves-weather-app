@@ -1,7 +1,5 @@
 {% extends 'base.html' %} 
-{% block checkout %} 
-
-
+{% block checkout %}
         {% if not object.shipping_address %}
         <div class="row">
                 <div class="col-12 text-center">
@@ -39,16 +37,32 @@
         {% else %}
                 <div class="text-center">
                         <h1>Finalise Checkout</h1>
-                        <p>{{ stripe_session_id }}</p>
                         <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                         <p>Shipping Address:  {{ object.shipping_address.get_address }}</p>
                         <p>Billing Address:  {{ object.shipping_address.get_address }}</p>
                         <p>Cart Total: {{ object.cart.total }}</p>
                         <p>Shipping Total: {{ object.shipping_total }}</p>
                         <p>Order Total: {{ object.total }}</p>
-                        <form class="form" method="POST" action="">{% csrf_token %}
+                        {% comment %}<form class="form" method="POST" action="">
+                                {% csrf_token %}
                                 <button type="submit" class="btn btn-success">Checkout</button>
-                        </form>
+                        </form>{% endcomment %}
+                        
+                        {% if stripe_session_id %}
+                            <button id="payViaStripe" class="btn btn-primary">Pay the money</button>
+                            
+                            <script src="https://js.stripe.com/v3"></script>
+                            <script>
+                                document.getElementById('payViaStripe').onclick = function () {
+                                    let stripe = Stripe("{{ stripe_pub_key }}")
+                                    stripe.redirectToCheckout({
+                                        sessionId: "{{ stripe_session_id }}",
+                                      })
+                                }
+                            </script>
+                        {% else %}
+                            <div class="alert alert-danger mx-auto" style="max-width: 400px;">Payment configuration error! Please contact site administrator</div>
+                        {% endif %}
                 </div>
         {% endif %}
 {% endblock %}
