@@ -57,4 +57,3 @@ class PaymentErrorPageView(TemplateView):
     template_name = 'payment_error.html'
 
 
-# PartOne.objects.create(**json)
