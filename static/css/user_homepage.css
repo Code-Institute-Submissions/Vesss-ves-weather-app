@@ -1,31 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
 nav {
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
     background-color: black;
 }
 
-footer {
-    height: 200px;
-    background-color: orange;
-    font-family: 'Bebas Neue', cursive;
-}
-
-/*i {*/
-/*    color: black;*/
-/*}*/
-
-/*.navbar-dark .navbar-nav .nav-link, .fa-shopping-cart {*/
-/*    color: white;*/
-/*}*/
-
-/*.navbar-dark .navbar-nav .nav-link:hover, .fa-shopping-cart:hover {*/
-/*    color: #BFBFBF;*/
-/*}*/
-
-/*ul > li > a > i {*/
-/*    color: #BFBFBF;*/
-/*}*/
 
 .weathercentral {
     height: 300px;
