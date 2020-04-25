@@ -39,6 +39,7 @@
         {% else %}
                 <div class="text-center">
                         <h1>Finalise Checkout</h1>
+                        <p>{{ stripe_session_id }}</p>
                         <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                         <p>Shipping Address:  {{ object.shipping_address.get_address }}</p>
                         <p>Billing Address:  {{ object.shipping_address.get_address }}</p>
