@@ -2,13 +2,14 @@
 
 {% block details %}
 
-{{ object.title }} <br />
+<div class="container text-center">
+<h2>{{ object.title }}</h2> <br />
 {{ object.description }} <br />
 {% if object.image.url %}
     <img src="{{ object.image.url }}" /> <br />
 {% endif %}
 
 {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
-
+</div>
 
 {% endblock %}
