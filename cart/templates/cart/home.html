@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
+<div class="container text-center">
 {% block cart %}
-    <h1>Cart Home</h1>
+<div class="text-center">
+    <h1>Cart</h1>
+    </div>
     
     {% if cart.products.exists %}
     <table class="table">
@@ -36,7 +39,9 @@
 </table>
 
 {% else %}
-<p class="lead">Cart is empty</p>
+<p class="lead">Your cart is empty</p>
+
     
 {% endif %}
 {% endblock %}
+</div>
