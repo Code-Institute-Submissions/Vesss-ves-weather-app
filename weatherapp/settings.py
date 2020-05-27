@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), '0550b9f3bb10472a915c402288dcb1a4.vfs.cloud9.us-east-1.amazonaws.com', 'ves-weather-app.herokuapp.com']
 
