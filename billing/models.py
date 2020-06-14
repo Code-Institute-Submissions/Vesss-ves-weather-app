@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save, pre_save
+import stripe
 
 User = settings.AUTH_USER_MODEL
 
