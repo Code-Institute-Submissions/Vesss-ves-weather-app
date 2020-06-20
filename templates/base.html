@@ -44,7 +44,7 @@
 
 
 
-    <footer class="fixed-bottom" style="background-color: orange;">
+    <footer class="fixed-bottom hide-footer" style="background-color: orange;">
         <div class="container-fluid">
             <br />
             <i class="fa fa-facebook fa-3x"></i>
@@ -63,21 +63,11 @@
     
 </body>
 
-
-@media only screen and (max-width: 600px) {
-    <footer style="background-color: orange;">
-        <div class="container-fluid">
-            <br />
-            <i class="fa fa-facebook fa-3x"></i>
-            <i class="fa fa-twitter fa-3x"></i>
-            <i class="fa fa-instagram fa-3x"></i>
-            <i class="fa fa-linkedin fa-3x"></i>
-        </div>
-        <br />
-        <div class="container-fluid">
-            <p><i class="fa fa-copyright">&nbsp;</i>Veselin Dimitrov's Weather App</p>
-        </div>
-    </footer>
+<style>
+.hide-footer {
+    @media only screen and (max-width: 600px) {display: none;}
+}
+</style>
   }
 
 
