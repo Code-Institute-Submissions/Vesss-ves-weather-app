@@ -18,7 +18,7 @@ It uses Postgresql to store data.
 
 - Users may register, login, logout.
 - Users get informed that they are in their personal profile at the top left corner of the dashboard.
-![Profile screenshot](https://i.ibb.co/02twHW5/profile.jpg)
+![Profile screenshot](https://i.ibb.co/RQh2K3g/menu-items.png)
 - The user has the option to submit a $5 donation via the donation button.
 
 ## Design
@@ -44,12 +44,24 @@ Inspiration for this type of design has been drawn from the likes of Apple and T
 
 The website is mobile-friendly. The navigation menu collapses on smaller devices and has a toggler menu icon (a.k.a burger button), which expands the menu items on click.
 
-![navigation](https://i.ibb.co/1MTxqkh/mobile-first.jpg)
+![navigation](https://i.ibb.co/QjKJc9T/mobile-friendl.png)
 
 The main feature of the web-based application is the weather search tool. The user types in the name of a city/town and once he clicks on the search button / enter key (submit button) he gets the current weather of that city.
 ![Weather example](https://i.ibb.co/gPMLwMF/open-weather.jpg)
 
 To further advance the user experience, the results also shows an icon of the current weahter on the top-left corner, alongside with the temperature and text-description of the weather.
+
+## Products and Cart
+The products page is titled 'Merchandise' and contains 3 items:
+![Products](https://i.ibb.co/fD7CJ4Z/Products-page.png)
+
+When the user clicks on an item, he gets to see it on a separate item details page:
+![Product](https://i.ibb.co/D43qgqt/selected-product.png)
+
+If the user chooses to add the item to the cart, he gets redirected to the cart page, where it shows him how many items he has. One of the options on the cart page, once there is at least one item, is for the user to remove the item, as demonstrated below:
+![Cart with product](https://i.ibb.co/VWJDsKn/Cart-with-item.png)
+
+
 
 ## Language and Frameworks
 - Django
