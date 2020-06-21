@@ -61,6 +61,20 @@ When the user clicks on an item, he gets to see it on a separate item details pa
 If the user chooses to add the item to the cart, he gets redirected to the cart page, where it shows him how many items he has. One of the options on the cart page, once there is at least one item, is for the user to remove the item, as demonstrated below:
 ![Cart with product](https://i.ibb.co/VWJDsKn/Cart-with-item.png)
 
+Once the user has decided he has all the products they wish to buy, they can then click on 'Checkout' in the cart.
+They then need to input their shipping address and billing address, on separate pages:
+![Shipping address](https://i.ibb.co/FqBDBDJ/Shipping-address.png)
+![Billing address](https://i.ibb.co/1ZbGk9w/Billing-address.png)
+
+Following the insertion of shipping and billing addresses, the user is redirected to the Finalise Checkout page, where they are shown their items, their addresses, the cart total, the cost of the shipping, and a combined total price (items + shipping).
+![Finalise order](https://i.ibb.co/54XTkH9/Finalise-checkout-and-option-to-pay.png)
+
+When the user clicks on 'Pay the money', they then get redirected to the Stripe payment page. It is set to work with the development input, meanning the user needs to type in '4242 4242...'.
+![Stripe](https://i.ibb.co/GVGmDYC/Stripe.png)
+
+Once that's completed and the payment is accepted, the user gets redirected to a 'Thank you for your order page.'
+![Thank you for your order](https://i.ibb.co/cXbp0SV/Thank-you-for-your-order.png)
+
 
 
 ## Language and Frameworks
