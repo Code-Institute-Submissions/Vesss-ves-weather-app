@@ -82,7 +82,7 @@ Once that's completed and the payment is accepted, the user gets redirected to a
 - HTML5
 - CSS3
 - Bootstrap 4
-- Font Awesome
+- Font Awesome 4.7
 - Open Weather API (https://openweathermap.org/api)
 
 
