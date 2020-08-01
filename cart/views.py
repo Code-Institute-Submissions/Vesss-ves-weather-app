@@ -4,13 +4,11 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.urls import reverse
 
-from accounts.forms import UserLoginForm
+from accounts.forms import UserLoginForm, AddressForm
+from accounts.models import Address, BillingProfile
 from orders.models import Order
 from products.models import Product
-from addresses.models import Address
-from addresses.forms import AddressForm
 from .models import Cart
-from billing.models import BillingProfile
 
 
 def cart_home(request):
