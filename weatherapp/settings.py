@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'weatherapp.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        config('DATABASAE_URL')
+        config('DATABASE_URL')
     )
 }
 
