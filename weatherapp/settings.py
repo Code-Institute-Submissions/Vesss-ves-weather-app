@@ -12,12 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+from decouple import config
 
 
-if os.environ.get('DEVELOPMENT'):
-    development = True
-else:
-    development = False
+# This variable will be used in some of code blocks
+IS_DEVELOPMENT = config('IS_DEVELOPMENT', default=False, cast=bool)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,10 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -94,17 +93,11 @@ WSGI_APPLICATION = 'weatherapp.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 
-if development:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.parse("postgres://pyzutbuoorfbhq:bbd04cbd04541cccd9ba2fe84ab9a7055800ddac1c058e9100c7e28979789411@ec2-54-247-72-30.eu-west-1.compute.amazonaws.com:5432/d5vudm7ors7e2k")
-    }
+DATABASES = {
+    'default': dj_database_url.parse(
+        config('DATABASAE_URL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -152,8 +145,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # stripe
-STRIPE_PUBLISHABLE_KEY = 'pk_test_BbiFSP5UQiTgd0uzTBK7pIdk006IgFnc45'
-STRIPE_SECRET_KEY = 'sk_test_E7QspNeUnEAzM8vfYsPgZGWx003AidX4N6'
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY', default='')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY', default='')
 
 
 
