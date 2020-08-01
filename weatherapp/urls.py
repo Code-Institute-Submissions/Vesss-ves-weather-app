@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from user_homepage.views import user_homepage, logout
 from homepage.views import index
-from accounts.views import login, registration, guest_register_view
+from accounts.views import login, registration
 from addresses.views import checkout_address_create_view
 from donations import views as donation_views
 from billing.views import payment_method_view, charge_view, payment_method_create_view
@@ -27,24 +27,32 @@ from products.views import ProductListView, ProductDetailView, ProductFeaturedDe
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^userhomepage/$', user_homepage, name="user_homepage"),
     url(r'^$', index, name="index"),
+
+    url(r'^login/$', login, name="login"),
     url(r'^logout/$', logout, name="logout"),
+    url(r'^registration/$', registration, name="registration"),
+
+    url(r'^userhomepage/$', user_homepage, name="user_homepage"),
+
+    # todo: will be updated later
+    # url(r'^featured/$', ProductFeaturedListView.as_view()),
+    # url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
+
+    url(r'^products/$', ProductListView.as_view(), name="products"),
+    # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
+    url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
+    url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations"),
+
+    url(r'^cart/', include("cart.urls", namespace="cart")),
+    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
+
     url(r'^billing/payment-method/$', payment_method_view, name="billing-payment-method"),
     url(r'^billing/payment-method/create$', payment_method_create_view, name="billing-payment-method-api"),
-    url(r'^charge$', charge_view, name="charge"),
-    url(r'^login/$', login, name="login"),
-    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
-    url(r'^register/guest/$', guest_register_view, name="guest_register"),
-    url(r'^cart/', include("cart.urls", namespace="cart")),
-    url(r'^products/$', ProductListView.as_view(), name="products"),
-    url(r'^featured/$', ProductFeaturedListView.as_view()),
-    url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-    url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    url(r'^registration/$', registration, name="registration"),
-    url(r'^donate/$', donation_views.DonationPageView.as_view(), name="donations"),
-    url(r'^thankyou/$', donation_views.ThankYouPageView.as_view(), name='thankyou'),
     url(r'^payment-error/$', donation_views.PaymentErrorPageView.as_view(), name='payment_err'),
+
+    url(r'^thankyou/$', donation_views.ThankYouPageView.as_view(), name='thankyou'),
+
+    url(r'^admin/', admin.site.urls),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

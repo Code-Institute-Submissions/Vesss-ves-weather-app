@@ -4,8 +4,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.urls import reverse
 
-from accounts.forms import UserLoginForm, GuestForm
-from accounts.models import GuestEmail
+from accounts.forms import UserLoginForm
 from orders.models import Order
 from products.models import Product
 from addresses.models import Address
@@ -13,10 +12,12 @@ from addresses.forms import AddressForm
 from .models import Cart
 from billing.models import BillingProfile
 
+
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
     return render(request, "cart/home.html", {"cart": cart_obj})
-    
+
+
 def cart_update(request):
     print(request.POST)
     product_id = request.POST.get('product_id')
@@ -41,9 +42,8 @@ def checkout_home(request):
     order_obj = None
     if cart_created or cart_obj.products.count() == 0:
         return redirect("cart:home")
-    
+
     login_form = UserLoginForm()
-    guest_form = GuestForm()
     address_form = AddressForm()
     billing_address_id = request.session.get("billing_address_id", None)
     shipping_address_id = request.session.get("shipping_address_id", None)
@@ -111,7 +111,6 @@ def checkout_home(request):
         "object": order_obj,
         "billing_profile": billing_profile,
         "login_form": login_form,
-        "guest_form": guest_form,
         "address_form": address_form,
         "address_qs": address_qs,
         "stripe_pub_key": settings.STRIPE_PUBLISHABLE_KEY,
