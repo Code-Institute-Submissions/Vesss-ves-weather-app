@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     #APPS
     'accounts',
     'user_homepage',
-    'homepage',
     'donations',
     'orders',
     'products',

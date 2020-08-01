@@ -17,8 +17,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
-from user_homepage.views import user_homepage, logout
-from homepage.views import index
+from user_homepage.views import user_homepage, logout, index
 from accounts.views import login, registration, checkout_address_create_view, payment_method_view, payment_method_create_view
 from donations import views as donation_views
 from products.views import ProductListView, ProductDetailView, ProductFeaturedDetailView, ProductFeaturedListView, ProductDetailSlugView
