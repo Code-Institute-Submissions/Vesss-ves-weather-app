@@ -12,7 +12,7 @@ The backend is Python, since Django is a Python-based framework.
 
 It uses Postgresql to store data.
 
-**The project is split into eight apps - 'Merchandise', 'Homepage', 'User Homepage', 'Cart', 'Billing', 'Orders', 'Accounts', 'Addresses', .**
+**The project is split into eight apps - 'Merchandise', 'Homepage', 'User Homepage', 'Cart', 'Orders', 'Accounts' .**
 
 ## Features
 

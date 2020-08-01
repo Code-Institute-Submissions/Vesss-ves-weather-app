@@ -7,7 +7,7 @@
         {% for item in object_list %}
         <div class="col-sm-4" id="box">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ item.image }}" alt="Img">
+                <img class="card-img-top" src="{{ item.image.url }}" alt="Img">
                 <div class="card-body">
                     <h5 class="card-title">{{ item.title }}</h5>
                     <p class="card-text">{{ item.description }}</p>
