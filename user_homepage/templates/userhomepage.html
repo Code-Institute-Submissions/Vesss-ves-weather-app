@@ -1,27 +1,33 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
-{% block weather %}
-<div class="container-fluid"><h1>{{ user|title }}'s profile</h1></div>
-    <div class="text-center">
-<form method="POST" action="">
-    {% csrf_token %}
-    {{ Form }}
-    <button type="submit">Search</button>
-</form>
-</div>
 
-<div class="container text-center weathercentral">
-    <div class="text-left">
-        <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"></img>
+{% load static %}
+
+{% block main_body %}
+    <div class="container-fluid">
+        <h1>{{ user|title }}'s profile</h1>
     </div>
-    <span><h2>{{ city_weather.city|title }}</h2></span>
-    <br />
-    <span class="temperature">{{ city_weather.temperature }}°F</span>
-    <br /> <span class="description">{{ city_weather.description }}</span>
-</div>
-{% endblock %}
+    <div class="text-center">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ Form }}
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
-{% block weatherinfotext %}
-<br />
-<div class="text-center"><h1>Search for the weather in any city!</h1></div>
+    <div class="container text-center weathercentral">
+        <div class="text-left">
+            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"></img>
+        </div>
+        <span>
+            <h2>{{ city_weather.city|title }}</h2>
+        </span>
+        <br/>
+        <span class="temperature">{{ city_weather.temperature }}°F</span>
+        <br/>
+        <span class="description">{{ city_weather.description }}</span>
+    </div>
+    <br/>
+    <div class="text-center">
+        <h1>Search for the weather in any city!</h1>
+    </div>
 {% endblock %}

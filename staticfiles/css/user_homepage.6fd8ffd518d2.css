@@ -28,6 +28,6 @@ footer {
 
 @media only screen and (max-width: 600px) {
     .hide-footer {
-        position: initial;
+        display: initial;
     }
 }

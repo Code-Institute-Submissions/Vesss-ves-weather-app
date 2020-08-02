@@ -6,6 +6,7 @@ nav {
     background-color: black;
 }
 
+
 .weathercentral {
     height: 300px;
     width: 300px;
@@ -24,10 +25,4 @@ footer {
     background-color: orange;
     font-family: 'Bebas Neue', cursive;
     margin-top: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-    .hide-footer {
-        position: initial;
-    }
 }

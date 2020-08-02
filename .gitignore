@@ -4,7 +4,7 @@ env.py
 # Created by .ignore support plugin (hsz.mobi)
 ### Example user template template
 ### Example user template
-
+.directory
 # IntelliJ project files
 .idea
 *.iml
@@ -135,3 +135,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+/media/
