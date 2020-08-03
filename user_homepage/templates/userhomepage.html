@@ -14,20 +14,18 @@
         </form>
     </div>
 
-    <div class="container text-center weathercentral">
+    <div class="container text-center roboto-font weathercentral">
         <div class="text-left">
-            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"></img>
+            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"/>
         </div>
-        <span>
-            <h2>{{ city_weather.city|title }}</h2>
-        </span>
+        <h2>{{ city_weather.city|title }}</h2>
         <br/>
-        <span class="temperature">{{ city_weather.temperature }}°F</span>
+        <span class="temperature font-weight-bold">{{ city_weather.temperature }}°F</span>
         <br/>
         <span class="description">{{ city_weather.description }}</span>
     </div>
     <br/>
     <div class="text-center">
-        <h1>Search for the weather in any city!</h1>
+        <h1>{{ roboto|default:"Search for the weather in any city!" }}</h1>
     </div>
 {% endblock %}
