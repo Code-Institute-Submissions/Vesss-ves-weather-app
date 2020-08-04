@@ -9,7 +9,7 @@
             <img src="{{ object.image.url }}"/> <br/>
         {% endif %}
 
-        {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+        {% include 'products/includes/update-cart.html' with product=object cart=cart %}
     </div>
 
 {% endblock %}
