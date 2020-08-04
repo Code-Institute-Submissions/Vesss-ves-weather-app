@@ -1,148 +1,24 @@
-{% extends 'homepage_base.html' %} 
+{% extends 'auth_base.html' %}
 
-<!-- Block 'Title' - this is the block for the title tag -->
-{% block title %}
-<title>Registration</title>
+{% block title %}{{ block.super }} | Registration{% endblock %}
+
+{% block main_body %}
+    <div class="text-center">
+        <p>Already have an account?
+            <a class="login" href="{% url 'login' %}">Log in!</a>
+        </p>
+        <br/>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="mx-auto">
+                {% for field in registration_form %}
+                    <tr>
+                        <td class="text-left">{{ field.label_tag }}</td>
+                        <td>{{ field }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button type="submit">Register</button>
+        </form>
+    </div>
 {% endblock %}
-
-{% block registration %}
-<div class="text-center">
-    <p>Already have an account? <a class="login" href="{% url 'login' %}">Log in!</a></p>
-    <br />
-    <form method="POST">
-        {% csrf_token %} {% for field in registration_form %}
-        <table>
-            <td>
-                <tr>
-                    {{ field.label_tag }}
-                </tr>
-                <br />
-                <tr>
-                    {{ field }}
-                </tr>
-            </td>
-        </table>
-        {% endfor %}
-        <button type="submit">Register</button>
-    </form>
-</div>
-{% endblock %}
-</div>
-
-/*
-<style>
-    */
-    /*@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');*/
-
-    /*    body {*/
-
-    /*    background: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9) no-repeat center center fixed; */
-
-    /*  -webkit-background-size: cover;*/
-
-    /*  -moz-background-size: cover;*/
-
-    /*  -o-background-size: cover;*/
-
-    /*  background-size: cover;*/
-
-    /*    }*/
-
-    /* Remove default li dots */
-
-    /*    nav > li {*/
-
-    /*     list-style: none;*/
-
-    /*    }*/
-
-    /*    nav > li > a {*/
-
-    /*        color: #0000ff;*/
-
-    /*    }*/
-
-    /* Remove on hover default text-decoration (underline) */
-
-    /*    nav > li > a:hover {*/
-
-    /*    text-decoration: none;*/
-
-    /*    color: #0000ff;*/
-
-    /*    }*/
-
-    /*    h1 {*/
-
-    /*        margin-top: 150px;*/
-
-    /*        font-family: 'Bebas Neue';*/
-
-    /*        font-size: 75px;*/
-
-    /*    }*/
-
-    /*    h1 > a {*/
-
-    /*        text-decoration: none;*/
-
-    /*        color: black;*/
-
-    /*    }*/
-
-    /*    h1 > a:hover {*/
-
-    /*        text-decoration: none;*/
-
-    /*        color: black;*/
-
-    /*    }*/
-
-    /*p > a {*/
-
-    /*    color: #0000ff;*/
-
-    /*}*/
-
-    /*p > a {*/
-
-    /*    text-decoration: none;*/
-
-    /*    background-image: linear-gradient(currentColor, currentColor);*/
-
-    /*    background-position: 0% 100%;*/
-
-    /*    background-repeat: no-repeat;*/
-
-    /*    background-size: 0% 2px;*/
-
-    /*    transition: background-size .3s;*/
-
-    /*}*/
-
-    /*p > a:hover, p > a:focus {*/
-
-    /*    background-size: 100% 2px;*/
-
-    /*}*/
-
-    /*p > a:hover {*/
-
-    /*    text-decoration: none;*/
-
-    /*    color: #0000ff;*/
-
-    /*}*/
-
-    /*button {*/
-
-    /*            font-family: 'Bebas Neue';*/
-
-    /*            font-size: 25px;*/
-
-    /*        }*/
-
-    /*
-</style>*/
-
-</html>

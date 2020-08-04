@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to my weather app{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/auth_pages.css" type="text/css"/>
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-center">
+        <a href="{% url 'index' %}">The Weather App</a>
+    </h1>
+{% endblock %}
+
+{% block footer %}{# not showing the footer #}{% endblock %}

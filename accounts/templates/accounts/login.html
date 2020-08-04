@@ -1,12 +1,8 @@
-{% extends 'homepage_base.html' %}
+{% extends 'auth_base.html' %}
 
-<!-- Block 'Title' - this is the block for the <title> tag -->
-{% block title %}
-<title>Login</title>
-{% endblock %}
+{% block title %}{{ block.super }} | Login{% endblock %}
 
-<!-- Block 'Login' - this is the block for the login.html page. The content within this block is unique to the login.html page. -->
-{% block login %}
+{% block main_body %}
 <div class="text-center">
     <p id="register">Don't have an account yet? <a href="{% url 'registration' %}">Register here!</a></p>
 </div>
@@ -19,43 +15,3 @@
     </form>
 </div>
 {% endblock %}
-<!--<style>-->
-<!--    @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');-->
-<!--    body {-->
-<!--        background: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9) no-repeat center center fixed;-->
-<!--        -webkit-background-size: cover;-->
-<!--        -moz-background-size: cover;-->
-<!--        -o-background-size: cover;-->
-<!--        background-size: cover;-->
-<!--    }-->
-
-/* Remove default li dots */
-
-<!--    nav>li {-->
-<!--        list-style: none;-->
-<!--    }-->
-
-<!--    nav>li>a {-->
-<!--        color: #0000ff;-->
-<!--    }-->
-
-/* Remove on hover default text-decoration (underline) */
-
-<!--    nav>li>a:hover {-->
-<!--        text-decoration: none;-->
-<!--    }-->
-
-<!--    h1 {-->
-<!--        margin-top: 150px;-->
-<!--        font-family: 'Bebas Neue';-->
-<!--        font-size: 75px;-->
-<!--    }-->
-
-<!--    button {-->
-<!--        font-family: 'Bebas Neue';-->
-<!--        font-size: 25px;-->
-<!--    }-->
-<!--</style>-->
-</body>
-
-</html>

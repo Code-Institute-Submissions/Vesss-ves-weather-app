@@ -6,9 +6,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!--Page basis extra meta-->
     {% block extra_meta %}{% endblock %}
 
+    <!--Site's base CSS files-->
     {% block css %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -17,9 +20,11 @@
         <link rel="stylesheet" href="{% static 'vendor/css/hover.css' %}"/>
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css"/>
     {% endblock %}
-
+    
+    <!--Extra CSS will be put here from child htmls-->
     {% block extra_css %}{% endblock %}
 
+    <!-- Block 'Title' - this is the block for the title tag -->
     <title>
         {% block title %}The Weather App{% endblock %}
     </title>
@@ -27,14 +32,14 @@
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/icon">
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column"> {# using flex body to force footer to very bottom #}
 
 {% block header %}
     <header>
         <nav class="navbar navbar-dark navbar-expand-sm">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-main-menu"
                     aria-controls="top-main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span> <!--Menu toggle icon for mobile-->
             </button>
             <div class="collapse navbar-collapse" id="top-main-menu">
                 <ul class="navbar-nav column-reverse">
@@ -46,6 +51,7 @@
                     </li>
                 </ul>
 
+                <!--Right side menu (on mobile they'll combined with others)-->
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item hvr-grow">
                         <a class="nav-link text-white" href="{% url 'cart:home' %}">
@@ -91,6 +97,7 @@
     </footer>
 {% endblock %}
 
+<!--Site's base javascript files-->
 {% block js %}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -99,10 +106,10 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 {% endblock %}
 
+<!--page basis extra javascript files or codes-->
 {% block extra_js %}{% endblock %}
 
 </body>
-
 </html>
 
 
