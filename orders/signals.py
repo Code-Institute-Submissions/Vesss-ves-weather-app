@@ -15,12 +15,6 @@ def pre_save_create_order_id(sender, instance, *args, **kwargs):
         qs.update(active=False)
 
 
-@receiver(pre_save, sender=Cart)
-def cart_update_total_price(sender, instance, created, *kwargs, **args):
-    if not created:
-        instance.update_total()
-
-
 @receiver(post_save, sender=Order)
 def order_update_total_price(sender, instance, created, *args, **kwargs):
     if created:

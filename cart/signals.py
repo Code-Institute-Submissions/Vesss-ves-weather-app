@@ -1,9 +1,10 @@
 from decimal import Decimal
 
-from django.db.models.signals import pre_save, m2m_changed
+from django.db.models.signals import pre_save, m2m_changed, post_save
 from django.dispatch import receiver
 
 from .models import Cart
+from orders.models import Order
 
 
 @receiver(m2m_changed, sender=Cart.products.through)
@@ -26,3 +27,14 @@ def pre_save_cart_receiver(sender, instance, *args, **kwargs):
     else:
         instance.total = 0
 
+
+@receiver(post_save, sender=Cart)
+def post_save_cart_total(sender, instance, created, *kwargs, **args):
+    if not created:
+        cart_obj = instance
+        cart_total = cart_obj.total
+        cart_id = cart_obj.id
+        qs = Order.objects.filter(cart__id=cart_id)
+        if qs.count() == 1:
+            order_obj = qs.first()
+            order_obj.update_total()
