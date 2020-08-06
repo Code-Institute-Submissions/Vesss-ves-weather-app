@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from user_homepage.views import user_homepage, logout, index
 from accounts.views import login, registration, checkout_address_create_view, payment_method_view, payment_method_create_view
 from donations import views as donation_views
-from products.views import ProductListView, ProductDetailView, ProductFeaturedDetailView, ProductFeaturedListView, ProductDetailSlugView
+from products.views import ProductListView, ProductDetailSlugView
 
 
 urlpatterns = [
@@ -45,7 +45,7 @@ urlpatterns = [
     url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
 
     url(r'^billing/payment-method/$', payment_method_view, name="billing-payment-method"),
-    url(r'^billing/payment-method/create$', payment_method_create_view, name="billing-payment-method-api"),
+    # url(r'^billing/payment-method/create$', payment_method_create_view, name="billing-payment-method-api"),
     url(r'^payment-error/$', donation_views.PaymentErrorPageView.as_view(), name='payment_err'),
 
     url(r'^thankyou/$', donation_views.ThankYouPageView.as_view(), name='thankyou'),

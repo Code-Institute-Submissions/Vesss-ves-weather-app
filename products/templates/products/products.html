@@ -1,6 +1,6 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block main_body %} 
+{% block main_body %}
 
 <div class="container">
     <div class="row">
@@ -12,10 +12,13 @@
                     <h5 class="card-title">{{ item.title }}</h5>
                     <p class="card-text">{{ item.description }}</p>
                     <a href="{{ item.get_absolute_url }}" class="btn btn-primary">View details</a>
+                    <div class="d-inline-block pl-3">
+                        {% include 'products/includes/update-cart.html' with product=item cart=cart %}
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %} 
+        {% endfor %}
     </div>
 </div>
 
