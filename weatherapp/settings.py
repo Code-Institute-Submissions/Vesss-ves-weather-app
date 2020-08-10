@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 from decouple import config
+from django.core.urlresolvers import reverse_lazy
 
 
 # This variable will be used in some of code blocks
@@ -127,6 +128,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('user_homepage')
 
 
 # Static files (CSS, JavaScript, Images)

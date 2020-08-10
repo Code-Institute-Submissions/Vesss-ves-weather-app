@@ -23,6 +23,7 @@ def billing_profile_created_receiver(sender, instance, *args, **kwargs):
 @receiver(post_save, sender=User)
 def user_created_receiver(sender, instance, created, *args, **kwargs):
     if created and instance.email:
+        # Create billing profile after user created
         BillingProfile.objects.get_or_create(user=instance, email=instance.email)
 
 
