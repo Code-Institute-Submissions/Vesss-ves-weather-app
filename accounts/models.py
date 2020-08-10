@@ -14,11 +14,9 @@ class BillingProfileManager(models.Manager):
         created = False
         obj = None
         if user.is_authenticated():
-            'logged in user checkout; remember payment stuff'
+            '''logged in user checkout; remember payment stuff'''
             obj, created = BillingProfile.objects.get_or_create(
                 user=user, email=user.email)
-        else:
-            pass
         return obj, created
 
 

@@ -3,6 +3,20 @@
 {% block title %}{{ block.super }} | Registration{% endblock %}
 
 {% block main_body %}
+    {% if messages %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 offset-4">
+                    {% for message in messages %}
+                        <div class="alert
+                            alert-{% if message.tags %}{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="text-center">
         <p>Already have an account?
             <a class="login" href="{% url 'login' %}">Log in!</a>

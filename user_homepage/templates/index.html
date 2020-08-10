@@ -1,6 +1,20 @@
 {% extends 'auth_base.html' %}
 
 {% block main_body %}
+    {% if messages %}
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-4 offset-4">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <nav class="navbar text-white flex-column">
         <ul class="list-unstyled text-center">
             <li id="login">
