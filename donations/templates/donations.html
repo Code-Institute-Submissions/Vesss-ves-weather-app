@@ -330,11 +330,10 @@
                 let form_data = new FormData();
                 form_data.append('data', JSON.stringify(result.paymentIntent));
 
-                fetch('/thankyou/', {
+                fetch('{% url 'thankyou' %}', {
                     method: 'POST',
                     body: form_data,
-                }).then(resp => resp).then(data => window.location = '/thankyou/')
-
+                }).then(resp => resp).then(data => window.location = '{% url 'thankyou' %}')
             });
         };
 
