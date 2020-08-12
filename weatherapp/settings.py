@@ -145,6 +145,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# weathermap app id
+WEATHER_MAP_APP_ID = config('WEATHER_MAP_APP_ID', default='')
 
 # stripe
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY', default='')
