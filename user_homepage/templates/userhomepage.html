@@ -6,10 +6,33 @@
     <div class="container-fluid">
         <h1>{{ user|title }}'s profile</h1>
     </div>
+
+    {% if messages or Form.errors %}
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-4 offset-4">
+                    {% if messages and not Form.errors %}
+                        {% for message in messages %}
+                            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if Form.errors %}
+                        <div class="alert alert-danger text-left">{{ Form.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="text-center">
         <form method="POST" action="">
             {% csrf_token %}
-            {{ Form }}
+
+            <label for="{{ Form.city_name.id_for_label }}">City name:</label>
+            <input type="text" name="{{ Form.city_name.html_name }}" id="{{ Form.city_name.id_for_label }}">
+
             <button type="submit">Search</button>
         </form>
     </div>
