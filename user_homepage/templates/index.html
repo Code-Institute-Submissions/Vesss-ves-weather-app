@@ -16,12 +16,12 @@
     {% endif %}
 
     <nav class="navbar text-white flex-column">
-        <ul class="list-unstyled text-center">
-            <li id="login">
-                <a href="{% url 'login' %}">Login</a>
+        <ul class="list-unstyled text-center d-flex">
+            <li id="login" class="mr-3">
+                <a class="btn btn-primary" style="font-size: 20px;" href="{% url 'login' %}">Login</a>
             </li>
             <li>
-                <a href="{% url 'registration' %}">Register</a>
+                <a class="btn btn-success" style="font-size: 20px;" href="{% url 'registration' %}">Register</a>
             </li>
         </ul>
     </nav>

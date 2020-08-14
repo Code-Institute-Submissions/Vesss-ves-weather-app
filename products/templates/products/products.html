@@ -2,7 +2,7 @@
 
 {% block main_body %}
 
-<div class="container">
+<div class="container roboto-font">
     <div class="row">
         {% for item in object_list %}
         <div class="col-sm-4" id="box">
@@ -10,6 +10,11 @@
                 <img class="card-img-top" src="{{ item.image.url }}" alt="Img">
                 <div class="card-body">
                     <h5 class="card-title">{{ item.title }}</h5>
+                    
+                    <div class="my-3">
+                        Price: ${{ item.price }}
+                    </div>
+                    
                     <p class="card-text">{{ item.description }}</p>
                     <a href="{{ item.get_absolute_url }}" class="btn btn-primary">View details</a>
                     <div class="d-inline-block pl-3">

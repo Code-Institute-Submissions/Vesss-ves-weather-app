@@ -1,53 +1,81 @@
 {% extends 'base.html' %}
 {% block main_body %}
-    {% if not object.shipping_address %}
-        <div class="row">
-            <div class="col-12 text-center">
-                <p class="lead">Shipping address</p>
-                <hr/>
+    <div class="container roboto-font">
+        {% if messages %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 offset-4">
+                        {% for message in messages %}
+                            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-            <div class="col-12 text-center">
-                {% url "checkout_address_create" as checkout_address_create %}
-                {% include 'addresses/form.html' with form=address_form next_url=request.build_uri action_url=checkout_address_create address_type='shipping' %}
+        {% endif %}
+        {% if not object.shipping_address %}
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="lead">Shipping address</p>
+                    <hr/>
+                </div>
+                <div class="col-12 text-center">
+                    {% url "checkout_address_create" as checkout_address_create %}
+                    {% include 'addresses/form.html' with form=address_form next_url=request.build_uri action_url=checkout_address_create address_type='shipping' %}
+                </div>
             </div>
-        </div>
 
-    {% elif not object.billing_address %}
-        <div class="row">
-            <div class="col-md-6 mx-auto col-10 text-center">
-                <p class="lead">Billing address</p>
-                <hr size="30"/>
-                {% url "checkout_address_create" as checkout_address_create %}
-                {% include 'addresses/form.html' with form=address_form next_url=request.build_uri action_url=checkout_address_create address_type='billing' %}
+        {% elif not object.billing_address %}
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="lead">Billing address</p>
+                    <hr size="30"/>
+                    {% url "checkout_address_create" as checkout_address_create %}
+                    {% include 'addresses/form.html' with form=address_form next_url=request.build_uri action_url=checkout_address_create address_type='billing' %}
+                </div>
             </div>
-        </div>
+        {% else %}
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h1>Finalise Checkout</h1>
+                    <div class="row">
+                        <div class="col-12">Cart Items:</div>
+                        {% for product in object.cart.products.all %}
+                            <div class="col-sm-6">
+                                <div class="card" style="max-width: 300px;">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top">
+                                    <div class="card-body border-top mt-3">
+                                        <h3 class="card-title">{{ product.name }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <p>Shipping Address: {{ object.shipping_address.get_address }}</p>
+                    <p>Billing Address: {{ object.shipping_address.get_address }}</p>
+                    <p>Cart Total: ${{ object.cart.total }}</p>
+                    <p>Shipping Total: ${{ object.shipping_total }}</p>
+                    <p>Order Total: ${{ object.total }}</p>
 
-    {% else %}
-        <div class="text-center">
-            <h1>Finalise Checkout</h1>
-            <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-            <p>Shipping Address: {{ object.shipping_address.get_address }}</p>
-            <p>Billing Address: {{ object.shipping_address.get_address }}</p>
-            <p>Cart Total: {{ object.cart.total }}</p>
-            <p>Shipping Total: {{ object.shipping_total }}</p>
-            <p>Order Total: {{ object.total }}</p>
+                    {% if stripe_session_id %}
+                        <button id="payViaStripe" class="btn btn-primary">Proceed to payment</button>
 
-            {% if stripe_session_id %}
-                <button id="payViaStripe" class="btn btn-primary">Pay the money</button>
-
-                <script src="https://js.stripe.com/v3"></script>
-                <script>
-                    document.getElementById('payViaStripe').onclick = function () {
-                        let stripe = Stripe("{{ stripe_pub_key }}")
-                        stripe.redirectToCheckout({
-                            sessionId: "{{ stripe_session_id }}",
-                        })
-                    }
-                </script>
-            {% else %}
-                <div class="alert alert-danger mx-auto" style="max-width: 400px;">Payment configuration error! Please contact site administrator</div>
-            {% endif %}
-        </div>
-    {% endif %}
+                        <script src="https://js.stripe.com/v3"></script>
+                        <script>
+                            document.getElementById('payViaStripe').onclick = function () {
+                                let stripe = Stripe("{{ stripe_pub_key }}");
+                                stripe.redirectToCheckout({
+                                    sessionId: "{{ stripe_session_id }}",
+                                })
+                            }
+                        </script>
+                    {% else %}
+                        <div class="alert alert-danger mx-auto" style="max-width: 400px;">Payment configuration error! Please contact site administrator</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
 

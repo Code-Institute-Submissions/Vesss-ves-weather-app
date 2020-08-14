@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main_body %}
-    <div class="container text-center">
+    <div class="container text-center roboto-font">
         <h2>{{ object.title }}</h2>
         <br/>
         {{ object.description }} <br/>
@@ -9,7 +9,17 @@
             <img src="{{ object.image.url }}"/> <br/>
         {% endif %}
 
+        <div class="my-3">
+            Price: ${{ object.price }}$
+        </div>
+
         {% include 'products/includes/update-cart.html' with product=object cart=cart %}
+    
+    {% if in_cart or product in cart.products.all %} 
+        <div class="mt-4">
+            <a href="{% url 'cart:checkout' %}" class="btn btn-success">Checkout</a>
+        </div>
+    {% endif %}
     </div>
 
 {% endblock %}

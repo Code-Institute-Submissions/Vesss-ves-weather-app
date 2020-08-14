@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-<div class="container text-center">
-    {% block main_body %}
+{% block main_body %}
+    <div class="container text-center roboto-font">
         <div class="text-center">
             <h1>Cart</h1>
         </div>
 
         {% if cart.products.exists %}
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -20,7 +20,12 @@
                         <tr>
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>
-                                <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>&nbsp;&nbsp;{% include 'products/includes/update-cart.html' with product=product cart=cart in_cart=True %}
+                                <a href="{{ product.get_absolute_url }}" class="p-2">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 100px;">
+                                </a>
+                                <div class="mt-3">
+                                    {% include 'products/includes/update-cart.html' with product=product cart=cart in_cart=True %}
+                                </div>
                             <td>{{ product.price }}</td>
                         </tr>
                     {% endfor %}
@@ -44,5 +49,5 @@
         {% else %}
             <p class="lead">Your cart is empty</p>
         {% endif %}
-    {% endblock %}
-</div>
+    </div>
+{% endblock %}

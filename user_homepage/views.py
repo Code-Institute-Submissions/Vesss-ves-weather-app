@@ -37,7 +37,6 @@ def user_homepage(request):
         r = requests.get(url.format(city)).json()
         messages.warning(request, "The city has not been found! Please try again!")
     
-    print(r)
     city_weather = {
         'city': city,
         'details': r['main'],

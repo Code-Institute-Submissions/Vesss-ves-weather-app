@@ -1,4 +1,5 @@
 import stripe
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.conf import settings
@@ -25,7 +26,7 @@ def cart_update(request):
         try:
             product_obj = Product.objects.get(id=product_id)
         except Product.DoesNotExist:
-            # Show message to user, product does not exist
+            messages.warning(request, "No product found!")
             return redirect("cart:home")
         cart_obj, new_obj = Cart.objects.new_or_get(request)
 

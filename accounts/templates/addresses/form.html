@@ -1,15 +1,33 @@
-    <div class="form-group">
-        <form method="POST" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}" class="text-center">
-            <div class="form-group">
-                {% csrf_token %} {% if next_url %}
-                <input type="hidden" name="next" value="{{ next_url }}" />
-                {% endif %}
-                
-                {% if address_type %}
-                    <input type="hidden" name="address_type" value="{{ address_type }}" />
-                {% endif %}
-                {{ address_form.as_p }}
+<div class="form-group">
+    <form method="POST" action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}" class="text-center">
+        <div class="form-group">
+            {% csrf_token %}
+            {% if next_url %}
+                <input type="hidden" name="next" value="{{ next_url }}"/>
+            {% endif %}
+
+            {% if address_type %}
+                <input type="hidden" name="address_type" value="{{ address_type }}"/>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+                    {% for field in address_form %}
+                        <div class="form-group row mb-1">
+                            <label for="{{ field.id_for_label }}" class="col-sm-3 col-form-label text-left">{{ field.label }}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="{{ field.html_name }}"
+                                       id="{{ field.id_for_label }}" value="{{ field.value|default:"" }}">
+                            </div>
+                        </div>
+                        {% if not forloop.last %}
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-            <button type=submit>Submit</button>
-        </form>
-    </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

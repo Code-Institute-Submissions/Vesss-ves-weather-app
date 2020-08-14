@@ -105,7 +105,7 @@ function redirectToNext(nextPath, timeoffset) {
 
 
 function stripeTokenHandler(token){
-  console.log(token.id)
+  {#console.log(token.id)#}
   var paymentMethodEndPoint = '/billing/payment-method/create/'
   var data = {
     'token': token.id
@@ -126,7 +126,7 @@ function stripeTokenHandler(token){
       
     },
     error: function(error) {
-      console.log(error);
+      {#console.log(error);#}
     }
   });
 }
