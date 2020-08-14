@@ -29,23 +29,43 @@
     <div class="text-center">
         <form method="POST" action="">
             {% csrf_token %}
-
-            <label for="{{ Form.city_name.id_for_label }}">City name:</label>
-            <input type="text" name="{{ Form.city_name.html_name }}" id="{{ Form.city_name.id_for_label }}">
-
+            <input type="text" name="{{ Form.city_name.html_name }}" placeholder="City name">
             <button type="submit">Search</button>
         </form>
     </div>
 
-    <div class="container text-center roboto-font weathercentral">
-        <div class="text-left">
-            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"/>
-        </div>
+    <div class="container text-center roboto-font px-2 py-3 weathercentral">
         <h2>{{ city_weather.city|title }}</h2>
         <br/>
-        <span class="temperature font-weight-bold">{{ city_weather.temperature }}°F</span>
-        <br/>
-        <span class="description">{{ city_weather.description }}</span>
+        <span class="temperature font-weight-bold">{{ city_weather.details.temp|floatformat:1 }}<sup class="">°F</sup></span>
+        <div class="w-100 mt-2 pt-2 border-top d-flex align-items-center justify-content-around">
+            <div class="d-flex flex-column justify-content-between">
+                <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png"/>
+                <span class="text-capitalize h6">{{ city_weather.description }}</span>
+            </div>
+            <div class="mx-2 px-2 border-left border-right d-flex flex-column justify-content-between text-primary">
+                <span class="font-weight-bold h3">{{ city_weather.details.temp_min|floatformat:1 }}<sup class="">°F</sup></span>
+                <span class="h6">Min</span>
+            </div>
+            <div class="d-flex flex-column justify-content-between text-danger">
+                <span class="font-weight-bold h3">{{ city_weather.details.temp_max|floatformat:1 }}<sup class="">°F</sup></span>
+                <span class="h6">Max</span>
+            </div>
+        </div>
+        <div class="w-100 mt-2 pt-2 border-top d-flex align-items-center justify-content-around">
+            <div class="d-flex flex-column justify-content-between text-dark">
+                <span class="font-weight-bold h3">{{ city_weather.wind|floatformat:1 }}<sub>miles/hr</sub></span>
+                <span class="h6">Wind</span>
+            </div>
+            <div class="mx-2 px-2 border-left border-right d-flex flex-column justify-content-between text-dark">
+                <span class="font-weight-bold h3">{{ city_weather.details.pressure }}<sub>hPa</sub></span>
+                <span class="h6">Pressure</span>
+            </div>
+            <div class="d-flex flex-column justify-content-between text-dark">
+                <span class="font-weight-bold h3">{{ city_weather.details.humidity|floatformat:1 }}<sub>%</sub></span>
+                <span class="h6">Humidity</span>
+            </div>
+        </div>
     </div>
     <br/>
     <div class="text-center">

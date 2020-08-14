@@ -20,7 +20,7 @@ def index(request):
 def user_homepage(request):
     user = User.objects.get(email=request.user.email)
     city = "London"
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&cnt=5&units=imperial&appid=' + settings.WEATHER_MAP_APP_ID
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=' + settings.WEATHER_MAP_APP_ID
 
     if request.method == "POST":
         form = CityForm(request.POST)
@@ -36,11 +36,14 @@ def user_homepage(request):
         city = "London"
         r = requests.get(url.format(city)).json()
         messages.warning(request, "The city has not been found! Please try again!")
+    
+    print(r)
     city_weather = {
         'city': city,
-        'temperature': r['main']['temp'],
+        'details': r['main'],
         'description': r['weather'][0]['description'],
         'icon': r['weather'][0]['icon'],
+        'wind': r.get('wind',{}).get('speed'),
     }
     context = {'city_weather': city_weather, 'Form': form}
 

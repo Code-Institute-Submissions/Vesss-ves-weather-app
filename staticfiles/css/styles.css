@@ -16,11 +16,25 @@ nav {
 }
 
 .weathercentral {
-    height: 300px;
-    width: 300px;
-    border-style: solid;
-    border-width: thin;
+    /*height: 300px;*/
+    width: 400px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+}
+
+sup {
+    font-size: 60%;
+    top: -20px;
+    font-weight: lighter;
+}
+
+sub {
+    left: 2px;
+    bottom: -2px;
+    font-size: 15px;
 }
 
 .searchbox {
