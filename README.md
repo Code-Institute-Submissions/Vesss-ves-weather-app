@@ -1,7 +1,24 @@
 # The Weather App
 
-**LINK to the active application:** https://ves-weather-app.herokuapp.com/
+#### **[Live demo](https://ves-weather-app.herokuapp.com/)**
 
+### Requirements:
+ - `python v3.6+`
+ - `django v1.11`
+ - `bootstrap v4.3.1`
+ -  [Open Weather API](https://openweathermap.org/api)
+
+### Install:
+ 1. Install/Setup database
+ 2. Copy `.env.example` to `.env`
+ 3. Update required variable changes to `.env`
+ 4. Install `virtualenv`: `virtualenv -p python3 <env folder name>`
+ 5. Activate: `source  <env folder name>/bin/activate`
+ 6. Install packages: `pip install -r requirements.txt`
+ 7. Runserver: `python manage.py runserver`
+
+
+### Description
 The Weather App is a web-based application which shows the weather in real time.
 
 The user may type in the name of a city and they will then get a result of the current weather.
@@ -12,11 +29,11 @@ The backend is Python, since Django is a Python-based framework.
 
 It uses Postgresql to store data.
 
-**The project is split into eight apps - 'Merchandise', 'Homepage', 'User Homepage', 'Cart', 'Orders', 'Accounts' .**
+**The project is split into eight apps - 'Accounts', 'Cart', 'Donations', 'Orders', 'Products', & 'User templates'' .**
 
 ## Features
 
-- Users may register, login, logout.
+- Users may register, login, logout, buy T-shirts.
 - Users get informed that they are in their personal profile at the top left corner of the dashboard.
 ![Profile screenshot](https://i.ibb.co/RQh2K3g/menu-items.png)
 - The user has the option to submit a $5 donation via the donation button.
@@ -52,7 +69,7 @@ The main feature of the web-based application is the weather search tool. The us
 To further advance the user experience, the results also shows an icon of the current weahter on the top-left corner, alongside with the temperature and text-description of the weather.
 
 ## Products and Cart
-The products page is titled 'Merchandise' and contains 3 items:
+The products page is titled 'Get a T-shirt' and contains 3 items:
 ![Products](https://i.ibb.co/fD7CJ4Z/Products-page.png)
 
 When the user clicks on an item, he gets to see it on a separate item details page:
@@ -74,16 +91,6 @@ When the user clicks on 'Pay the money', they then get redirected to the Stripe 
 
 Once that's completed and the payment is accepted, the user gets redirected to a 'Thank you for your order page.'
 ![Thank you for your order](https://i.ibb.co/cXbp0SV/Thank-you-for-your-order.png)
-
-
-
-## Language and Frameworks
-- Django
-- HTML5
-- CSS3
-- Bootstrap 4
-- Font Awesome 4.7
-- Open Weather API ([link](https://openweathermap.org/api))
 
 
 ## Back-end technology
