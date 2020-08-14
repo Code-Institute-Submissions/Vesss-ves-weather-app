@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 from decouple import config
+<<<<<<< HEAD
 from django.core.urlresolvers import reverse_lazy
+=======
+>>>>>>> c9031a6125e677a9f56bc63cf93e4c8e60634773
 
 
 # This variable will be used in some of code blocks

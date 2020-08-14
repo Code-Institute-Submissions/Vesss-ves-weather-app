@@ -2,7 +2,6 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
 from .models import Order
-from cart.models import Cart
 from weatherapp.utils import unique_order_id_generator
 
 
