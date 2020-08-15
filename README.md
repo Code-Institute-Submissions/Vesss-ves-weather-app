@@ -60,7 +60,7 @@ Inspiration for this type of design has been drawn from the likes of Apple and T
 
 The website is mobile-friendly. The navigation menu collapses on smaller devices and has a toggler menu icon (a.k.a burger button), which expands the menu items on click.
 
-![navigation](https://i.ibb.co/QjKJc9T/mobile-friendl.png)
+![navigation](https://i.ibb.co/QcDhj46/dropdown-menu.png)
 
 The main feature of the web-based application is the weather search tool. The user types in the name of a city/town and once he clicks on the search button / enter key (submit button) he gets the current weather of that city.
 ![Weather example](https://i.ibb.co/gPMLwMF/open-weather.jpg)
