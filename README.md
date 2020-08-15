@@ -63,7 +63,7 @@ The website is mobile-friendly. The navigation menu collapses on smaller devices
 ![navigation](https://i.ibb.co/QcDhj46/dropdown-menu.png)
 
 The main feature of the web-based application is the weather search tool. The user types in the name of a city/town and once he clicks on the search button / enter key (submit button) he gets the current weather of that city.
-![Weather example](https://i.ibb.co/gPMLwMF/open-weather.jpg)
+![Weather example](https://i.ibb.co/TrJ4F0F/weather-function.png)
 
 To further advance the user experience, the results also shows an icon of the current weahter on the top-left corner, alongside with the temperature and text-description of the weather.
 
