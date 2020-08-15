@@ -52,7 +52,7 @@ The clouds/mountains image on the index page (login/registration page) has been 
 The Weather App has a very untuitive nature.
 
 When the user goes to the home page, he is met with a title and two buttons - Login and Register. Those are accompanied with a beautiful, clean background of white clouds and white mountain tops.
-![Weather App](https://i.ibb.co/Hrn9dVL/weather-app.jpg)
+![Weather App](https://i.ibb.co/TH56ft8/Login-page.png)
 
 
 Inspiration for this type of design has been drawn from the likes of Apple and Tesla, where there is little text and beautiful, high-quality background images.
