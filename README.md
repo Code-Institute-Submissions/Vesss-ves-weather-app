@@ -83,6 +83,7 @@ If the user chooses to add the item to the cart, he gets redirected to the cart 
 Once the user has decided he has all the products they wish to buy, they can then click on 'Checkout' in the cart.
 They then need to input their shipping address and billing address, on separate pages:
 ![Shipping address](https://i.ibb.co/TRrW9Xz/shipping-address.png)
+
 ![Billing address](https://i.ibb.co/xmS0K0d/Billing-address.png)
 
 Following the insertion of shipping and billing addresses, the user is redirected to the Finalise Checkout page, where they are shown their items, their addresses, the cart total, the cost of the shipping, and a combined total price (items + shipping).
@@ -92,7 +93,7 @@ When the user clicks on 'Proceed to payment', they then get redirected to the St
 ![Stripe](https://i.ibb.co/GVGmDYC/Stripe.png)
 
 Once that's completed and the payment is accepted, the user gets redirected to a 'Thank you for your order page.'
-![Thank you for your order](https://i.ibb.co/cXbp0SV/Thank-you-for-your-order.png)
+![Thank you for your order](https://i.ibb.co/nMRSTx2/Thank-You-For-Your-Order.png)
 
 
 ## Back-end technology
