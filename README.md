@@ -71,7 +71,7 @@ It is very important to note that the Weather App is showing the current weather
 
 ## Products and Cart
 The products page is titled 'Get a T-shirt' and contains 3 items:
-![Products](https://i.ibb.co/fD7CJ4Z/Products-page.png)
+![Products](https://i.ibb.co/6BncDmS/get-a-t-shirt.png)
 
 When the user clicks on an item, he gets to see it on a separate item details page:
 ![Product](https://i.ibb.co/D43qgqt/selected-product.png)
