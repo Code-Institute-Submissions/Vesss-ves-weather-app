@@ -74,6 +74,7 @@ The products page is titled 'Get a T-shirt' and contains 3 items:
 ![Products](https://i.ibb.co/6BncDmS/get-a-t-shirt.png)
 
 When the user clicks on an item, he gets to see it on a separate item details page:
+
 ![Product](https://i.ibb.co/QYgW0Sn/jacket.png)
 
 If the user chooses to add the item to the cart, he gets redirected to the cart page, where it shows him how many items he has. One of the options on the cart page, once there is at least one item, is for the user to remove the item, as demonstrated below:
