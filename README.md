@@ -33,9 +33,9 @@ It uses Postgresql to store data.
 
 ## Features
 
-- Users may register, login, logout, buy T-shirts.
+- Users may register, login, logout, buy T-shirts (or a jacket), or make a donation
 - Users get informed that they are in their personal profile at the top left corner of the dashboard.
-![Profile screenshot](https://i.ibb.co/RQh2K3g/menu-items.png)
+![Profile screenshot](https://i.ibb.co/k84nwYQ/menu.png)
 - The user has the option to submit a $5 donation via the donation button.
 
 ## Design
