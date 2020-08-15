@@ -65,7 +65,9 @@ The website is mobile-friendly. The navigation menu collapses on smaller devices
 The main feature of the web-based application is the weather search tool. The user types in the name of a city/town and once he clicks on the search button / enter key (submit button) he gets the current weather of that city.
 ![Weather example](https://i.ibb.co/TrJ4F0F/weather-function.png)
 
-To further advance the user experience, the results also shows an icon of the current weahter on the top-left corner, alongside with the temperature and text-description of the weather.
+As demonstrated in the screenshot above, the app functionality does more than simply show the current temperature - it also shows whether it's currently cloudy, sunny, raining, etc; it shows the minimum and maximum temperature; it shows the speed of the wind; it shows the atmospheric pressure (hPa); it shows the humidity.
+
+It is very important to note that the Weather App is showing the current weather for the city the user has searched for. If the user would like to get a new update, they would have to search for the city again (similar to refreshing the page).
 
 ## Products and Cart
 The products page is titled 'Get a T-shirt' and contains 3 items:
