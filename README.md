@@ -88,7 +88,7 @@ They then need to input their shipping address and billing address, on separate 
 Following the insertion of shipping and billing addresses, the user is redirected to the Finalise Checkout page, where they are shown their items, their addresses, the cart total, the cost of the shipping, and a combined total price (items + shipping).
 ![Finalise order](https://i.ibb.co/qsVG7Tj/Finalise-Checkout.png)
 
-When the user clicks on 'Pay the money', they then get redirected to the Stripe payment page. It is set to work with the development input, meanning the user needs to type in '4242 4242...'.
+When the user clicks on 'Proceed to payment', they then get redirected to the Stripe payment page. It is set to work with the development input, meanning the user needs to type in '4242 4242...'.
 ![Stripe](https://i.ibb.co/GVGmDYC/Stripe.png)
 
 Once that's completed and the payment is accepted, the user gets redirected to a 'Thank you for your order page.'
