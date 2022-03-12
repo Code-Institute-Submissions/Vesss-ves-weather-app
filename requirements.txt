@@ -39,5 +39,5 @@ virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 whitenoise==4.1.4
 wrapt==1.11.2
-Pillow==7.1.2
+Pillow==9.0.1
 python-decouple==3.3
